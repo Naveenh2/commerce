@@ -1,51 +1,119 @@
 import React from "react";
-import BannerImg from "../../assets/women2.jpg";
-import { GrSecure } from "react-icons/gr";
-import { IoFastFood } from "react-icons/io5";
-import { GiFoodTruck } from "react-icons/gi";
+import footerLogo from "../../assets/logo.png";
+import Banner from "../../assets/footer-pattern.jpg";
+import {
+  FaFacebook,
+  FaInstagram,
+  FaLinkedin,
+  FaLocationArrow,
+  FaMobileAlt,
+} from "react-icons/fa";
 
-const Banner = () => {
+const BannerImg = {
+  backgroundImage: `url(${Banner})`,
+  backgroundPosition: "bottom",
+  backgroundRepeat: "no-repeat",
+  backgroundSize: "cover",
+  height: "100%",
+  width: "100%",
+};
+
+const FooterLinks = [
+  {
+    title: "Home",
+    link: "/#",
+  },
+  {
+    title: "About",
+    link: "/#about",
+  },
+  {
+    title: "Contact",
+    link: "/#contact",
+  },
+  {
+    title: "Blog",
+    link: "/#blog",
+  },
+];
+
+const Footer = () => {
   return (
-    <div className="min-h-[550px] flex justify-center items-center py-12 sm:py-0">
+    <div style={BannerImg} className="text-white">
       <div className="container">
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 items-center">
-          {/* image section */}
-          <div data-aos="zoom-in">
-            <img
-              src={BannerImg}
-              alt=""
-              className="max-w-[400px] h-[350px] w-full mx-auto drop-shadow-[-10px_10px_12px_rgba(0,0,0,1)] object-cover"
-            />
+        <div data-aos="zoom-in" className="grid md:grid-cols-3 pb-44 pt-5">
+          {/* company details */}
+          <div className="py-8 px-4">
+            <h1 className="sm:text-3xl text-xl font-bold sm:text-left text-justify mb-3 flex items-center gap-3">
+              <img src={footerLogo} alt="" className="max-w-[50px]" />
+              Shopsy
+            </h1>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum in
+              beatae ea recusandae blanditiis veritatis.
+            </p>
           </div>
 
-          {/* text details section */}
-          <div className="flex flex-col justify-center gap-6 sm:pt-0">
-            <h1 data-aos="fade-up" className="text-3xl sm:text-4xl font-bold">
-              Winter Sale upto 50% Off
-            </h1>
-            <p
-              data-aos="fade-up"
-              className="text-sm text-gray-500 tracking-wide leading-5"
-            >
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque
-              reiciendis inventore iste ratione ex alias quis magni at optio
-            </p>
-            <div className="flex flex-col gap-4">
-              <div data-aos="fade-up" className="flex items-center gap-4">
-                <GrSecure className="text-4xl h-12 w-12 shadow-sm p-4 rounded-full bg-violet-100 dark:bg-violet-400" />
-                <p>Quality Products</p>
+          {/* Footer Links */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 col-span-2 md:pl-10">
+            <div>
+              <div className="py-8 px-4">
+                <h1 className="sm:text-xl text-xl font-bold sm:text-left text-justify mb-3">
+                  Important Links
+                </h1>
+                <ul className="flex flex-col gap-3">
+                  {FooterLinks.map((link) => (
+                    <li
+                      className="cursor-pointer hover:text-primary hover:translate-x-1 duration-300 text-gray-200"
+                      key={link.title}
+                    >
+                      <span>{link.title}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <div data-aos="fade-up" className="flex items-center gap-4">
-                <IoFastFood className="text-4xl h-12 w-12 shadow-sm p-4 rounded-full bg-orange-100 dark:bg-orange-400" />
-                <p>Fast Delivery</p>
+            </div>
+            <div>
+              <div className="py-8 px-4">
+                <h1 className="sm:text-xl text-xl font-bold sm:text-left text-justify mb-3">
+                  Links
+                </h1>
+                <ul className="flex flex-col gap-3">
+                  {FooterLinks.map((link) => (
+                    <li
+                      className="cursor-pointer hover:text-primary hover:translate-x-1 duration-300 text-gray-200"
+                      key={link.title}
+                    >
+                      <span>{link.title}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <div data-aos="fade-up" className="flex items-center gap-4">
-                <GiFoodTruck className="text-4xl h-12 w-12 shadow-sm p-4 rounded-full bg-green-100 dark:bg-green-400" />
-                <p>Easy Payment method</p>
+            </div>
+
+            {/* social links */}
+
+            <div>
+              <div className="flex items-center gap-3 mt-6">
+                <a href="#">
+                  <FaInstagram className="text-3xl" />
+                </a>
+                <a href="#">
+                  <FaFacebook className="text-3xl" />
+                </a>
+                <a href="#">
+                  <FaLinkedin className="text-3xl" />
+                </a>
               </div>
-              <div data-aos="fade-up" className="flex items-center gap-4">
-                <GiFoodTruck className="text-4xl h-12 w-12 shadow-sm p-4 rounded-full bg-yellow-100 dark:bg-yellow-400" />
-                <p>Get Offers</p>
+              <div className="mt-6">
+                <div className="flex items-center gap-3">
+                  <FaLocationArrow />
+                  <p>Noida, Uttar Pradesh</p>
+                </div>
+                <div className="flex items-center gap-3 mt-3">
+                  <FaMobileAlt />
+                  <p>+91 123456789</p>
+                </div>
               </div>
             </div>
           </div>
@@ -55,4 +123,4 @@ const Banner = () => {
   );
 };
 
-export default Banner;
+export default Footer;
